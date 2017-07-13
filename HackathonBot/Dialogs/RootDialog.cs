@@ -22,7 +22,7 @@ namespace HackathonBot.Dialogs
 
             var messageText = (activity.Text ?? string.Empty);
             
-            await context.PostAsync("We am processing your message ....");
+            await context.PostAsync("We are processing your message ....");
 
             if (messageText.ToLower().Contains("bill"))
             {

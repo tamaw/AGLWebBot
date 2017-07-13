@@ -1,4 +1,5 @@
-﻿using Microsoft.Bot.Builder.Dialogs;
+﻿using HackathonBot.Model;
+using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
@@ -43,14 +44,16 @@ namespace HackathonBot.Dialogs
         private async Task ConfirmBillDateHandler(IDialogContext context, IAwaitable<bool> result)
         {
             var confirmResult = await result;
-            
-            if(confirmResult)
+
+            if (confirmResult)
             {
                 await context.PostAsync("Your next bill will be on 10/08/2017");
                 PromptDialog.Confirm(context, ConfirmCreditCardHandler, "Do you want to pay by credit card?");
             }
-
-            context.Done("RestartConversation");
+            else
+            {
+                context.Done("RestartConversation");
+            }
         }
 
         private async Task ConfirmCreditCardHandler(IDialogContext context, IAwaitable<bool> result)
@@ -59,10 +62,23 @@ namespace HackathonBot.Dialogs
 
             if (confirmResult)
             {
-
+                var creditCardForm = new FormDialog<CreditCard>(new CreditCard(), BuildCreditCardForm, FormOptions.PromptInStart);
+                context.Call(creditCardForm, ResumeAfterCreditCardFormDialog);
             }
-            
-            context.Done("RestartConversation");
+            else
+            {
+                context.Done("RestartConversation");
+            }
+        }
+
+        private IForm<CreditCard> BuildCreditCardForm()
+        {
+            return new FormBuilder<CreditCard>().Build();
+        }
+
+        private async Task ResumeAfterCreditCardFormDialog(IDialogContext context, IAwaitable<CreditCard> result)
+        {
+            await Task.CompletedTask;
         }
     }
 }
