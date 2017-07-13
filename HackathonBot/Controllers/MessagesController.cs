@@ -18,7 +18,7 @@ namespace HackathonBot
         {
             if (activity.Type == ActivityTypes.Message)
             {
-                await Conversation.SendAsync(activity, () => new Dialogs.RootDialog());
+                await Conversation.SendAsync(activity, () => new Dialogs.BillDialog());
             }
             else
             {
