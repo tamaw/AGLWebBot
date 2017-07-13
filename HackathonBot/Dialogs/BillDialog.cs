@@ -9,29 +9,21 @@ namespace HackathonBot.Dialogs
 {
     [LuisModel("2b357f92-681a-4d14-afeb-ed297b055404", "50c09327130842ce820e121e03ff1fe3")]
     [Serializable]
-    public class BillDialog : LuisDialog<object>
+    public class BillDialog : LuisDialog<string>
     {
         [LuisIntent("")]
         public async Task None(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync("Sorry, I don't know what you mean");
+            await context.PostAsync("Sorry, please rephrase your question");
             context.Wait(MessageReceived);
         }
 
         [LuisIntent("nextBill")]
         public async Task NextBill(IDialogContext context, LuisResult result)
         {
-            EntityRecommendation contractType;
-            if(result.TryFindEntity("contactType",out contractType))
-            {
-                PromptDialog.Confirm(context, ResumeAfterHandler, "Do you want to the date for the next bill?", attempts: 3, promptStyle: PromptStyle.AutoText);
-            }
-            else
-            {
-                PromptDialog.Confirm(context, ResumeAfterHandler, "Do you want to the date for the next bill?", attempts: 3, promptStyle: PromptStyle.AutoText);
-            }
+            PromptDialog.Confirm(context, ConfirmBillDateHandler, "Do you want to the date for the next bill?");
 
-            context.Wait(MessageReceived);
+            await Task.CompletedTask;
         }
 
         [LuisIntent("currentBill")]
@@ -48,9 +40,29 @@ namespace HackathonBot.Dialogs
             context.Wait(MessageReceived);
         }
 
-        private async Task ResumeAfterHandler(IDialogContext context, IAwaitable<bool> result)
+        private async Task ConfirmBillDateHandler(IDialogContext context, IAwaitable<bool> result)
         {
-            await Task.FromResult(10);
+            var confirmResult = await result;
+            
+            if(confirmResult)
+            {
+                await context.PostAsync("Your next bill will be on 10/08/2017");
+                PromptDialog.Confirm(context, ConfirmCreditCardHandler, "Do you want to pay by credit card?");
+            }
+
+            context.Done("RestartConversation");
+        }
+
+        private async Task ConfirmCreditCardHandler(IDialogContext context, IAwaitable<bool> result)
+        {
+            var confirmResult = await result;
+
+            if (confirmResult)
+            {
+
+            }
+            
+            context.Done("RestartConversation");
         }
     }
 }
