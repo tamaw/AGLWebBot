@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using Microsoft.Bot.Builder.FormFlow;
 
 namespace HackathonBot.Dialogs
 {
@@ -11,7 +12,7 @@ namespace HackathonBot.Dialogs
         public Task StartAsync(IDialogContext context)
         {
             context.Wait(MessageReceivedAsync);
-
+            
             return Task.CompletedTask;
         }
 
@@ -19,13 +20,27 @@ namespace HackathonBot.Dialogs
         {
             var activity = await result as Activity;
 
-            // calculate something for us to return
-            int length = (activity.Text ?? string.Empty).Length;
+            var messageText = (activity.Text ?? string.Empty);
+            
+            await context.PostAsync("We are processing your message ....");
 
-            // return our reply to the user
-            await context.PostAsync($"You sent {activity.Text} which was {length} characters");
+            if (messageText.ToLower().Contains("bill"))
+            {
+                await context.Forward(new Dialogs.BillDialog(), ResumeAfter, activity);
+            }
+            else
+            {
+                await context.PostAsync("I didn't understand your message, please try again");
 
-            context.Wait(MessageReceivedAsync);
+                context.Wait(MessageReceivedAsync);
+            }
+        }
+
+        private async Task ResumeAfter(IDialogContext context, IAwaitable<string> result)
+        {
+            var endMessage = await result;
+
+            await context.PostAsync("How can I help you again?");
         }
     }
 }
