@@ -128,7 +128,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Cards.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
-    <Compile Include="Dialogs\BillDialog.cs" />
+    <Compile Include="Dialogs\GeneralDialog.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="GiffyService.cs" />
     <Compile Include="Global.asax.cs">
@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="Phrases.cs" />
     <Compile Include="Model\CreditCard.cs" />
+    <Compile Include="Model\MonthEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
