@@ -78,10 +78,10 @@ namespace HackathonBot.Dialogs
         public async Task AGL(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("AGL Energy is a publicly–listed Australian company, provides energy products and services to the Australian economy. The company is involved in both the generation and retailing of electricity for residential and commercial use.");
-            await context.PostAsync(@"Giving you more reasons to switch to AGL:
-                                    Big range of competitive energy plans
-                                    Great rewards for staying with us
-                                    Useful tools and tips to help you save");
+            await context.PostAsync(@"Giving you more reasons to switch to AGL:  <br />
+                    - Big range of competitive energy plans   
+                    - Great rewards for staying with us   
+                    - Useful tools and tips to help you save");
             context.Wait(MessageReceived);
         }
 
