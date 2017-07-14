@@ -42,7 +42,6 @@ namespace HackathonBot.Dialogs
             context.Wait(MessageReceived);
         }
 
-
         [LuisIntent("greetings")]
         public async Task Greetings(IDialogContext context, LuisResult result)
         {
@@ -50,7 +49,7 @@ namespace HackathonBot.Dialogs
             context.Wait(MessageReceived);
         }
 
-        [LuisIntent("digitalMeters")]
+        [LuisIntent("digitalMeter")]
         public async Task DigitalMeters(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("Digital meters, otherwise known as smart meters, are the next generation of electricity meters, replacing analogue ones. They measure your home's electricity use in 30-minute intervals, and can send this data automatically to your energy retailer every day using a secure wireless network.");
@@ -60,7 +59,19 @@ namespace HackathonBot.Dialogs
         [LuisIntent("agl")]
         public async Task AGL(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync(" ");
+            await context.PostAsync("AGL Energy is a publicly–listed Australian company, provides energy products and services to the Australian economy. The company is involved in both the generation and retailing of electricity for residential and commercial use.");
+            await context.PostAsync(@"Giving you more reasons to switch to AGL:
+                                    Big range of competitive energy plans
+                                    Great rewards for staying with us
+                                    Useful tools and tips to help you save");
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("aglEnergySources")]
+        public async Task AglEnergySources(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("AGL’s diverse power generation portfolio is spread across traditional thermal generation as well as renewable sources including hydro, wind, landfill gas, biomass and solar.");
+            await context.PostAsync("For more infromation, please visit: https://www.agl.com.au/about-agl/how-we-source-energy");
             context.Wait(MessageReceived);
         }
 
