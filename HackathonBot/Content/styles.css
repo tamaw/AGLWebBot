@@ -1,0 +1,13 @@
+﻿body {
+    font-family: 'Segoe UI'
+}
+
+.wc-chatview-panel {
+    width: 320px;
+    height: 500px;
+    position: relative;
+}
+
+.wc-message-groups {
+    background-color: white;
+}
