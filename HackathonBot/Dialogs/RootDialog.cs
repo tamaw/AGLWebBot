@@ -22,8 +22,40 @@ namespace HackathonBot.Dialogs
 
             var messageText = (activity.Text ?? string.Empty);
             
-            await context.Forward(new Dialogs.GeneralDialog(), ResumeAfter, activity);
+            //await context.PostAsync("We are processing your message ....");
+
+            if (messageText.ToLower().Contains("bill"))
+            {
+                await context.Forward(new Dialogs.GeneralDialog(), ResumeAfter, activity);
+            }
+            else if (messageText.ToLower().Contains("what are we"))
+            {
+                await context.PostAsync("Ducks!");
+            }
+            else if (messageText.ToLower().Contains("what are you"))
+            {
+                await context.PostAsync("Thank you, Dwayne, but I'm no lady. I'M A DUCK!");
+            }
+            else if (messageText.ToLower().Contains("what do ducks do"))
+            {
+                await context.PostAsync("Ducks fly together!");
+            }
+            else if (messageText.ToLower().Contains("ducks fly together"))
+            {
+                await context.PostAsync("And ducks fly together. - That's right,Jan.");
+            }
+            else if (messageText.ToLower().Contains("why ducks"))
+            {
+                await context.PostAsync("I'll have you know, Peter, that the Duck is one of the most noble, agile and intelligent creatures in the animal kingdom.");
+
+            }
+            else
+            {
+                await context.Forward(new Dialogs.GeneralDialog(), ResumeAfter, activity);
+            }
         }
+
+
 
         private async Task ResumeAfter(IDialogContext context, IAwaitable<string> result)
         {

@@ -6,6 +6,7 @@ using Microsoft.Bot.Builder.Luis.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.Bot.Connector;
 
 namespace HackathonBot.Dialogs
 {
@@ -16,7 +17,24 @@ namespace HackathonBot.Dialogs
         [LuisIntent("")]
         public async Task None(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync("Sorry, please rephrase your question");
+            var rand = new Random();
+            int messageIndex = rand.Next() % _notUnderstoodMessages.Length;
+
+            var giffy = new GiffyService();
+            var gif = giffy.GetRandomGif("lol");
+
+            var reply = context.MakeMessage();
+            reply.Text = _notUnderstoodMessages[messageIndex];
+
+            reply.Attachments.Add(new Attachment
+            {
+                ContentUrl = gif,
+                ContentType = "image/gif",
+                Name = "giffy.png"
+            });
+
+            await context.PostAsync(reply);
+
             context.Wait(MessageReceived);
         }
 
@@ -124,5 +142,12 @@ namespace HackathonBot.Dialogs
             context.Done("RestartConversation");
             await Task.CompletedTask;
         }
+
+        private readonly string[] _notUnderstoodMessages =
+        {
+            "I didn't understand your message, please try again",
+            "Thank you very much, Mr. Ducksworth! Quack Quack Quack Quack Quack, Mr. Ducksworth!",
+            "Um. Okay. - Ducks fly together!"
+        };
     }
 }
