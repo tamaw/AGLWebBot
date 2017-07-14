@@ -10,7 +10,7 @@ namespace HackathonBot.Dialogs
 {
     [LuisModel("2b357f92-681a-4d14-afeb-ed297b055404", "50c09327130842ce820e121e03ff1fe3")]
     [Serializable]
-    public class BillDialog : LuisDialog<string>
+    public class GeneralDialog : LuisDialog<string>
     {
         [LuisIntent("")]
         public async Task None(IDialogContext context, LuisResult result)
@@ -22,7 +22,7 @@ namespace HackathonBot.Dialogs
         [LuisIntent("nextBill")]
         public async Task NextBill(IDialogContext context, LuisResult result)
         {
-            PromptDialog.Confirm(context, ConfirmBillDateHandler, "Do you want to the date for the next bill?");
+            PromptDialog.Confirm(context, ConfirmBillDateHandler, "Do you want the date for the next bill?");
 
             await Task.CompletedTask;
         }
@@ -38,6 +38,14 @@ namespace HackathonBot.Dialogs
         public async Task sendBill(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("Do you want your bill to be sent over email?");
+            context.Wait(MessageReceived);
+        }
+
+
+        [LuisIntent("greetings")]
+        public async Task Greetings(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("Hey, please feel free to ask me anything about AGL, your Bills, or our packages.");
             context.Wait(MessageReceived);
         }
 
@@ -78,6 +86,8 @@ namespace HackathonBot.Dialogs
 
         private async Task ResumeAfterCreditCardFormDialog(IDialogContext context, IAwaitable<CreditCard> result)
         {
+            await context.PostAsync("Your credit card information has been saved, your next bill will be deducted from your card, no more paper bills!");
+            context.Done("RestartConversation");
             await Task.CompletedTask;
         }
     }

@@ -22,18 +22,7 @@ namespace HackathonBot.Dialogs
 
             var messageText = (activity.Text ?? string.Empty);
             
-            await context.PostAsync("We are processing your message ....");
-
-            if (messageText.ToLower().Contains("bill"))
-            {
-                await context.Forward(new Dialogs.BillDialog(), ResumeAfter, activity);
-            }
-            else
-            {
-                await context.PostAsync("I didn't understand your message, please try again");
-
-                context.Wait(MessageReceivedAsync);
-            }
+            await context.Forward(new Dialogs.GeneralDialog(), ResumeAfter, activity);
         }
 
         private async Task ResumeAfter(IDialogContext context, IAwaitable<string> result)
