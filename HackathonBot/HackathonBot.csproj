@@ -103,6 +103,21 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\bndv1kWA4.png" />
+    <Content Include="Content\images\BvGJOg3UU.png" />
+    <Content Include="Content\images\cygh4BpiM.png" />
+    <Content Include="Content\images\icon-avatar.svg" />
+    <Content Include="Content\images\icon-cross-white.svg" />
+    <Content Include="Content\images\icon-elec.svg" />
+    <Content Include="Content\images\icon-gas.svg" />
+    <Content Include="Content\images\icon-magnify.svg" />
+    <Content Include="Content\images\ppvBAxK8I.png" />
+    <Content Include="Content\images\Residential_Campaign-Banner_SalesHero.jpg" />
+    <Content Include="Content\images\RpfQp1UDw.png" />
+    <Content Include="Content\images\Sim_sPkP8.png" />
+    <Content Include="Content\images\w2O_Q3Al0.png" />
+    <Content Include="Content\main.min.css" />
+    <Content Include="Content\styles.css" />
     <Content Include="default.htm" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
@@ -111,12 +126,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Cards.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Dialogs\GeneralDialog.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
+    <Compile Include="GiffyService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Phrases.cs" />
     <Compile Include="Model\CreditCard.cs" />
     <Compile Include="Model\MonthEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,6 +150,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

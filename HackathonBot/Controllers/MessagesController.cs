@@ -1,15 +1,19 @@
-﻿using System.Net;
+﻿using System;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 
-namespace HackathonBot
+namespace HackathonBot.Controllers
 {
     [BotAuthentication]
     public class MessagesController : ApiController
     {
+        private const string GreetingText = "Hello, how may I help you?";
+
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
@@ -40,6 +44,9 @@ namespace HackathonBot
                 // Handle conversation state changes, like members being added and removed
                 // Use Activity.MembersAdded and Activity.MembersRemoved and Activity.Action for info
                 // Not available in all channels
+
+                if (message.MembersAdded.Count > 0 && message.MembersAdded.First().Name == "User")
+                    SendMessage(message, GreetingText);
             }
             else if (message.Type == ActivityTypes.ContactRelationUpdate)
             {
@@ -55,6 +62,14 @@ namespace HackathonBot
             }
 
             return null;
+        }
+
+        public static void SendMessage(Activity message, string greeting)
+        {
+            var client = new ConnectorClient(new Uri(message.ServiceUrl));
+
+            var reply = message.CreateReply(greeting);
+            client.Conversations.ReplyToActivityAsync(reply);
         }
     }
 }

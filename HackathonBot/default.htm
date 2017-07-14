@@ -1,31 +1,314 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <meta charset="utf-8" />
-    <link href="https://unpkg.com/botframework-webchat/botchat.css" rel="stylesheet" />
-    <style>
-        .wc-chatview-panel {
-            width: 320px;
-            height: 500px;
-            position: relative;
-        }
-    </style>
+    <title>AGL | Electricity Providers | Gas Suppliers | Solar Energy | AGL</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="user-scalable=0, width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.agl.com.au/-/media/Project/Primary/Logos/AGL_Logo_hand.png?w=180&amp;t=636282877550000000&amp;hash=2FBDE9D3A9EB30C857CBDE930E18D4ADB284150C">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://www.agl.com.au/-/media/Project/Primary/Logos/AGL_Logo_hand.png?w=192&amp;t=636282877550000000&amp;hash=2874D0EB2751DC2E42C0A9CEA2FE80CAD9DB630C">
+
+    <link rel="stylesheet" href="Content/main.min.css">
+    <link rel="stylesheet" href="Content/styles.css">
+
+    <link href="https://unpkg.com/botframework-webchat/botchat.css" rel="stylesheet"/>
 </head>
-<body style="font-family:'Segoe UI'">
-    <div>
-        <div style="position: absolute; bottom: 0" id="BotChatGoesHere" />
-        <div style="clear:both;" />
+<body>
+    
+<header class="header js-header">
+    <div class="header__mobile-menu-btn js-toggle-mobile-menu">
+        <img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/assets/images/icon-hamburger.svg" class="header__mobile-menu-btn__icon">
     </div>
-    <script src="https://unpkg.com/botframework-webchat/botchat.js"></script>
-    <script>
-        BotChat.App({
+
+    <a href="https://www.agl.com.au/" class="header__logo-container">
+        <img data-feo-orig-src="/-/media/Project/Primary/Logos/AGL_Logo_primary.png?h=69&amp;w=72&amp;hash=83DEFA2C416E215176A1BF15A1EA3928E6C9C770" src="./Content/images/bndv1kWA4.png" class="header__logo">
+        <img data-feo-orig-src="/-/media/Project/Primary/Logos/AGL_Logo_primary.png?mh=28&amp;hash=0A0975DDB14B3F75713A76970519BDA018D7DBA8" src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/feo-cdn/f/E/Mp3zzK8bI.png" class="header__logo header__logo--secondary">
+    </a>
+
+    <nav class="primary-nav">
+        <div class="primary-nav__first-row">
+            <ul class="primary-nav-links">
+                <li class="primary-nav-links__item"> <a class="primary-nav-links__link  is-active" href="https://www.agl.com.au/residential" target=""> Residential </a> </li>
+                <li class="primary-nav-links__item"> <a class="primary-nav-links__link " href="https://www.agl.com.au/business" target=""> Business </a> </li>
+                <li class="primary-nav-links__item"> <a class="primary-nav-links__link " href="https://www.agl.com.au/about-agl" target=""> About AGL </a> </li>
+            </ul>
+            <div class="flex-dummy"></div>
+            <div class="primary-nav__button primary-nav__button--state js-state-selector-button">
+                <div class="primary-nav__button--state__inner js-state-current-value">VIC</div>
+            </div>
+
+            <div class="primary-nav__button primary-nav__button--search" >
+                <img src="./Content/images/icon-magnify.svg" class="primary-nav__button--search__close" style="width: 15px; height: 15px; opacity: 100">
+            </div>
+
+            <a href="https://www.agl.com.au/sts/account/login" class="primary-nav__button primary-nav__button--account">
+                <img src="./Content/images/icon-avatar.svg" class="primary-nav__button__icon">
+                <span class="primary-nav__button__hide-mobile">My Account</span>
+            </a>
+        </div>
+        <div class="primary-nav__second-row">
+            <ul class="primary-nav-links primary-nav-links--light">
+                <li class="primary-nav-links__item  has-tertiary"> <a href="https://www.agl.com.au/residential/energy-plans" target="" class="primary-nav-links__link "> Energy Plans </a> </li>
+                <li class="primary-nav-links__item "> <a href="https://www.agl.com.au/residential/solar" target="" class="primary-nav-links__link "> Solar </a> </li>
+                <li class="primary-nav-links__item "> <a href="http://aglsmarterliving.com.au/" target="" class="primary-nav-links__link "> Appliances &amp; Tradespeople </a> </li>
+                <li class="primary-nav-links__item  has-tertiary"> <a href="https://www.agl.com.au/residential/why-choose-agl" target="" class="primary-nav-links__link "> Why AGL?  </a> </li>
+                <li class="primary-nav-links__item  has-tertiary"> <a href="https://www.agl.com.au/residential/help-and-support" target="" class="primary-nav-links__link "> Help </a>
+                </li> <li class="primary-nav-links__item "> <a href="https://www.agl.com.au/residential/contact-us" target="" class="primary-nav-links__link "> Contact </a> </li>
+            </ul>
+
+            <div class="flex-dummy"></div>
+            <a href="https://www.agl.com.au/register"> <button class="btn btn--primary btn--small">SIGN UP ONLINE</button> </a>
+        </div>
+    </nav>
+</header>
+
+<body>
+<main>
+<div class=" ">
+<div class="carousel carousel--angled-banner js-carousel carousel--no-slides">
+    <div class="banner banner--angled-banner ab ab--bottom-left js-carousel-slide banner--light active-slide" style="background-image: url('./Content/images/Residential_Campaign-Banner_SalesHero.jpg');">
+        <div class="banner__content carousel-navigation-padding content-width">
+            <div class="banner__heading giga text--center">
+                Keeping warm shouldn’t burn a hole in your pocket.
+            </div>
+
+            <div class="banner__copy text--center">
+                <style>
+                    .banner--angled-banner .banner__heading { margin-bottom: 10px; }
+
+                    .banner__copy .banner__offer-area,
+                    .banner__offer-credit {
+                        display: inline-block;
+                        width: 30%;
+                        vertical-align: top;
+                    }
+
+                    .banner__offer-credit { padding-top: 5px; }
+
+                    .banner__offer-area { padding: 30px 0 30px 0; }
+
+                    .banner__offer-upto {
+                        display: block;
+                        font-size: 26px;
+                        line-height: 1;
+                        text-align: center;
+                    }
+
+                    .banner__copy .banner__offer-plus {
+                        display: inline-block;
+                        width: 4%;
+                        text-align: center;
+                        color: #ffffff !important;
+                        padding-top: 38px;
+                    }
+
+                    .banner__copy .col-md-12 {
+                        display: block;
+                        width: 100%;
+                    }
+
+                    .banner__copy .banner__offer-terms { font-size: 13px; }
+
+                    .icon-with-copy__icon {
+                        display: inline-block;
+                        vertical-align: top;
+                    }
+
+                    .banner__offer {
+                        display: inline-block;
+                        font-family: 'Titillium Web', sans-serif;
+                        font-size: 70px;
+                        font-weight: 600;
+                        line-height: 100%;
+                        padding-right: 10px;
+                    }
+
+                    .banner__offer-text {
+                        display: inline-block;
+                        text-align: center;
+                        line-height: 1.2;
+                    }
+
+                    .banner__btn-container { margin-top: 0 !important; }
+
+                    .banner__offer-terms {
+                        position: absolute;
+                        top: 235px;
+                    }
+
+                    .carousel.carousel--no-slides .banner { padding-top: 40px; }
+
+                    .cta-winter {
+                        vertical-align: middle;
+                        margin-left: 5px;
+                        width: 7px;
+                    }
+
+                    @media (max-width: 1400px) {
+                        .carousel.carousel--no-slides .banner { padding-top: 0px; }
+                    }
+
+                    @media (max-width: 1040px) {
+                        .carousel.carousel--no-slides .banner { padding-bottom: 160px; }
+                    }
+
+                    @media (max-width: 800px) {
+                        .banner__offer-terms { top: 255px; }
+
+                        .banner__offer-text { text-align: center; }
+
+                        .banner__offer-plus.mega { font-size: 30px; }
+
+                        .banner__copy .banner__offer-plus {
+                            width: 3%;
+                            padding-top: 50px;
+                        }
+                    }
+
+                    @media (max-width: 680px) {
+                        .banner {
+                            background-image: none !important;
+                            background-color: #001cb0;
+                        }
+
+                        .carousel.carousel--no-slides .banner { padding-bottom: 110px; }
+
+                        .icon-with-copy__icon { display: none; }
+                    }
+
+                    @media (max-width: 500px) {
+                        .banner__heading.giga { font-size: 46px; }
+
+                        .banner__offer-plus.mega { display: none; }
+
+                        .banner__copy .banner__offer-area, .banner__offer-credit {
+                            display: block;
+                            width: 100%;
+                            text-align: left;
+                            padding: 5px 0 5px 15px;
+                        }
+
+                        .banner__offer-upto {
+                            display: block;
+                            font-size: 18px;
+                            text-align: left;
+                        }
+
+                        .banner__offer-terms { top: 330px; }
+
+                        .banner__offer-text { text-align: left; }
+
+                        .banner__copy { margin-bottom: 10px; }
+
+                        .carousel.carousel--no-slides .banner { padding-bottom: 95px; }
+                    }
+
+                    @media (max-width: 400px) {
+                        .banner__copy { display: block; }
+
+                        .banner__offer {
+                            font-size: 50px;
+                            padding-right: 5px;
+                        }
+
+                        .banner__offer-terms { top: 260px; }
+
+                        .carousel.carousel--no-slides .banner { padding-bottom: 90px; }
+                    }
+                </style>
+                <span class="banner__offer-area">
+                    <img src="./Content/images/icon-elec.svg" class="icon-with-copy__icon">
+                    <span class="banner__offer">33%</span>
+                    <span class="banner__offer-text">off electricity usage charges <br>when you pay on time<sup>*</sup></span>
+                </span>
+                <span class="banner__offer-plus mega">+</span>
+                <span class="banner__offer-area">
+                    <img src="./Content/images/icon-gas.svg" class="icon-with-copy__icon">
+                    <span class="banner__offer">15%</span>
+                    <span class="banner__offer-text">off gas usage charges <br>when you pay on time<sup>*</sup></span>
+                </span>
+                <span class="banner__offer-plus mega">+</span>
+            </div>
+
+            <div class="banner__btn-container">
+                <a class="banner__btn btn btn--primary" href="https://www.agl.com.au/campaigns/winteroffer/state">VIEW OFFER &amp; SIGN UP <img data-feo-orig-src="/~/media/AGL/Residential/Images/triangle-gray.png" src="./Content/images/Sim_sPkP8.png" class="cta-winter"></a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="quick-actions-container content-width">
+    <ul class="quick-actions">
+        <li class="quick-actions__item">
+            <a href="https://www.agl.com.au/residential/energy-plans/electricity-and-gas-plans" class="quick-actions__link">
+                <div class="quick-actions__icon-container">
+                    <img data-feo-orig-src="/-/media/DLS/Icons/Icons-PNGs/compare-plans.png?h=180&amp;la=en&amp;w=180" src="./Content/images/w2O_Q3Al0.png" class="quick-actions__icon" alt="compare plans">
+                </div>
+                <div class="quick-actions__text">
+                    Compare Plans
+                </div>
+            </a>
+        </li>
+        <li class="quick-actions__item">
+            <a href="https://www.agl.com.au/residential/help-and-support/moving-home" class="quick-actions__link">
+                <div class="quick-actions__icon-container">
+                    <img data-feo-orig-src="/-/media/DLS/Icons/Icons-PNGs/move-house.png?h=180&amp;la=en&amp;w=180" src="./Content/images/RpfQp1UDw.png" class="quick-actions__icon" alt="move house">
+                </div>
+                <div class="quick-actions__text">
+                    Move
+                </div>
+            </a>
+        </li>
+        <li class="quick-actions__item">
+            <a href="https://www.agl.com.au/residential/help-and-support/billing-and-payments/bill-payment-options" class="quick-actions__link">
+                <div class="quick-actions__icon-container">
+                    <img data-feo-orig-src="/-/media/DLS/Icons/Icons-PNGs/pay-my-bill.png?h=180&amp;la=en&amp;w=180" src="./Content/images/cygh4BpiM.png" class="quick-actions__icon" alt="pay my bill">
+                </div>
+                <div class="quick-actions__text">
+                    Pay Bill
+                </div>
+            </a>
+        </li>
+        <li class="quick-actions__item">
+            <a href="https://www.agl.com.au/signup#connection" class="quick-actions__link">
+                <div class="quick-actions__icon-container">
+                    <img data-feo-orig-src="/-/media/DLS/Icons/Icons-PNGs/register.png?h=180&amp;la=en&amp;w=180" src="./Content/images/BvGJOg3UU.png" class="quick-actions__icon" alt="register">
+                </div>
+                <div class="quick-actions__text">
+                    Sign Up
+                </div>
+            </a>
+        </li>
+        <li class="quick-actions__item">
+            <a href="https://www.agl.com.au/sts/account/login" class="quick-actions__link">
+                <div class="quick-actions__icon-container">
+                    <img data-feo-orig-src="/-/media/DLS/Icons/Quick-actions_residential-pngs/usage.png?h=180&amp;la=en&amp;w=180" src="./Content/images/ppvBAxK8I.png" class="quick-actions__icon" alt="usage">
+                </div>
+                <div class="quick-actions__text">
+                    my account
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+</div>  
+<!-- BOT HERE -->
+<div style="position: absolute; bottom: 600px; right: 420px; z-index: 100000; background-color: whitesmoke" id="ChatBot"/>
+<div style="clear: both;"/>
+</main>
+
+<script src="https://unpkg.com/botframework-webchat/botchat.js"></script>
+<script>
+    BotChat.App({
             directLine: {
                 token: "mKQot0iSwjo.cwA.NB4.wk8nxNeJhI8QzWxOpfembbYlR4_slg7TloTuFA1SO1E"
             },
             user: { id: 'Me' },
-            bot: { id: 'AGL Web Bot' }
-        }, document.getElementById("BotChatGoesHere"));
-    </script>
+            bot: { id: 'AGL WebBot' }
+        },
+        document.getElementById("ChatBot"));
+</script>
 </body>
 </html>
