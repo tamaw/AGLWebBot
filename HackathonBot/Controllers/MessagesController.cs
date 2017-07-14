@@ -44,9 +44,7 @@ namespace HackathonBot.Controllers
                 // Handle conversation state changes, like members being added and removed
                 // Use Activity.MembersAdded and Activity.MembersRemoved and Activity.Action for info
                 // Not available in all channels
-
-                if (message.MembersAdded.Count > 0 && message.MembersAdded.First().Name == "User")
-                    SendMessage(message, GreetingText);
+                
             }
             else if (message.Type == ActivityTypes.ContactRelationUpdate)
             {
